@@ -25,7 +25,9 @@ const bookController = {
   getAllBooks: async (req, res) => {
     try {
 
+      const count = await Book.find().count();
 
+      console.log("count: ", count);
       const allBooks = await Book.find();
       console.log("GET ALL BOOKS: ", allBooks);
 
