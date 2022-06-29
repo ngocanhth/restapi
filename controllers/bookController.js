@@ -12,6 +12,7 @@ const bookController = {
 
       const savedBook = await newBook.save();
       if (req.body.author) {
+        // const author = Author.find({_id: req.body.author});
         const author = Author.findById(req.body.author);
         await author.updateOne({ $push: { books: savedBook._id } });
       }
