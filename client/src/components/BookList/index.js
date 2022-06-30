@@ -19,11 +19,11 @@ function BookList(props) {
 
     return (
         <Grid container spacing={2} alignItems='stretch'>
-            {/* {books.map((book) => (
-            <Grid key={book._id} item xs={12} sm={4}>
+            {books.map((book) => (
+            <Grid key={book._id} item xs={12} sm={3}>
                 <Book book={book} />
             </Grid>
-            ))}  */}
+            ))} 
       </Grid>
     );
 }

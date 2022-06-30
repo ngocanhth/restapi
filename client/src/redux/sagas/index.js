@@ -65,14 +65,14 @@ import * as api from '../../api';
 
 function* fetchBooksSaga(action) {
   try {
-    const posts = yield call(api.fetchBooks);
-    console.log('Books:', posts);
+    const books = yield call(api.fetchBooks);
+    console.log('Books:', books);
 
     // 1 action duoc dispatch se len middlware saga truoc khi dc gui toi reducers
     // khi co ket qua tra ve se goi 1 den tiep 1 effact khasc cua redux saga la put 
     // se trigger 1 action trong saga la (actions.getPosts.getPostsSuccess voi tham so la kq tra ve tu effect call lay dc dc request fetchPosts
 
-    yield put(actions.getBooks.getBooksSuccess(posts.data));
+    yield put(actions.getBooks.getBooksSuccess(books.data));
 
     // khi trigger action thi actions.getPosts.getPostsSuccess trong posts reducer se dc goi 
 
@@ -91,9 +91,9 @@ function* fetchBooksSaga(action) {
 
 function* createBookSaga(action) {
   try {
-    const post = yield call(api.createBook,  action.payload);
-    console.log('Post: ', post);
-    yield put(actions.createBook.createBookSuccess(post.data));
+    const book = yield call(api.createBook,  action.payload);
+    console.log('Book: ', book);
+    yield put(actions.createBook.createBookSuccess(book.data));
   } catch (error) {
     console.error(error);
     yield put(actions.createBook.createBookFailure(error));
@@ -102,9 +102,9 @@ function* createBookSaga(action) {
 
 function* updateBookSaga(action) {
   try {
-    const post = yield call(api.updateBook,  action.payload);
-    console.log('Post Update: ', post);
-    yield put(actions.updateBook.updateBookSuccess(post.data));
+    const book = yield call(api.updateBook,  action.payload);
+    console.log('Book Update: ', book);
+    yield put(actions.updateBook.updateBookSuccess(book.data));
   } catch (error) {
     console.error(error);
     yield put(actions.createBook.updateBookFailure(error));

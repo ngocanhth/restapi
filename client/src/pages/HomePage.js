@@ -1,25 +1,25 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
-import BookList from '../components/BookList';
 import { Fab } from '@mui/material';
+import { useCallback } from 'react';
+import BookList from '../components/BookList';
 
 import { useDispatch } from 'react-redux';
+import CreateBookModal from '../components/CreateBookModal';
 import { showModal } from '../redux/actions';
 
 function HomePage() {
     const dispatch = useDispatch();
 
-    // const openCreatePostModal = useCallback(() => {
-    //   dispatch(showModal());
-    // }, [dispatch]);
+    const openCreateBookModal = useCallback(() => {
+      dispatch(showModal());
+    }, [dispatch]);
 
     return (
         <>
             <BookList></BookList>
-            {/* <CreatePostModal /> */}
+            <CreateBookModal /> 
             <Fab
                 color='primary'
-                //  onClick={openCreatePostModal}
+                 onClick={openCreateBookModal}
                 sx = {{
                     position: 'fixed',
                     right: 24,

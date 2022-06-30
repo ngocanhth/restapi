@@ -1,5 +1,5 @@
 import { INIT_STATE } from "../../constant";
-import { createBook, getBooks, getType, updateBook } from "../actions";
+import { createBook, deleteBook, getBooks, getType, updateBook } from "../actions";
 
 export default function booksReducers(state = INIT_STATE.books, action) {
     switch(action.type) {
@@ -31,6 +31,14 @@ export default function booksReducers(state = INIT_STATE.books, action) {
             data: state.data.map((book) =>
             book._id === action.payload._id ? action.payload : book
           )
+        };
+
+        case getType(deleteBook.deleteBookSuccess):
+        return {
+            ...state,
+            data: state.data.map((book) =>
+            book._id === action.payload._id ? action.payload : book
+            )
         };
 
         default:

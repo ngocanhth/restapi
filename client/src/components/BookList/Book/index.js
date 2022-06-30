@@ -1,26 +1,26 @@
-import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
-import React, { useCallback } from 'react';
-// import MoreVertIcon from '@mui/icons-material/MoreVert';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-import moment from 'moment';
-import { useDispatch } from 'react-redux';
-import { updateBook } from '../../../redux/actions';
-
-function Book({book}) {
-    const dispatch = useDispatch();
-
-    // const onLikeBtnClick = useCallback(() => {
-    //     dispatch(
-    //       updateBook.updateBookRequest({ ...book, likeCount: book.likeCount + 1 })
-    //     );
-    //   }, [dispatch, book]);
-    
-    return (
-        <Card>
-          
-      </Card>
-    );
+export default function Book({book}) {
+  return (
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+            {book.name}
+        </Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          {book.genres}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        Published Date: {book.publishedDate}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button variant="primary">Learn More</Button>
+      </CardActions>
+    </Card>
+  );
 }
-
-export default Book;
