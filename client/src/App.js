@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch } from 'react-redux';
+import Styleguides from './pages/Styleguides';
+import * as actions from './redux/actions';
+// import { Container, Box } from '@mui/system';
+import { Container, Box } from '@mui/material';
+import './styleguides/styleguides.css';
+import Header from './components/Header';
+import GlobalCssOverride from './styleguides/globalStyles';
+import HomePage from './pages/HomePage';
 
 function App() {
+
+  // const dispatch = useDispatch();
+
+  // console.log(actions.getBooks.getBooksRequest());
+
+  // dispatch(actions.getBooks.getBooksRequest());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="container" maxWidth='lg1280' disableGutters = {true} >
+      <GlobalCssOverride />
+      <HomePage></HomePage>
+  </ Container>
   );
 }
 
